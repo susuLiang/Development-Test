@@ -29,6 +29,10 @@ class MainViewController: UIViewController {
                 print("getPosts error: \(String(describing: error.errorDescription))")
             }
         }
+        
+        if let layout = self.collectionView.collectionViewLayout as? CustomFlowLayout {
+            layout.delegate = self
+        }
     }
 
 }
@@ -49,11 +53,16 @@ extension MainViewController: UICollectionViewDataSource {
 
 extension MainViewController: UICollectionViewDelegateFlowLayout {
     
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
     }
+
+}
+
+extension MainViewController: CustomFlowLayoutDelegate {
     
-    
+    func collectionView(_ collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath) -> CGFloat {
+        return CGFloat(postModel.posts[indexPath.row].cover.height > 315 ? 315 : postModel.posts[indexPath.row].cover.height)
+    }
     
 }

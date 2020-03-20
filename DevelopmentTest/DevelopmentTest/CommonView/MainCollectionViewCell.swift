@@ -19,6 +19,8 @@ class MainCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var likeCountLabel: UILabel!
     @IBAction func tapLikeButton(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        self.likeButton.tintColor = sender.isSelected ? .red : .black
     }
     
     override func awakeFromNib() {
@@ -33,6 +35,7 @@ class MainCollectionViewCell: UICollectionViewCell {
         self.likeCountLabel.text = "\(post.likes)"
         self.mainImageView.sd_setImage(with: post.cover.url)
         self.avatarImageView.sd_setImage(with: post.user.cover)
+        self.likeButton.tintColor = post.isLike ? .red : .black
     }
 
 }
