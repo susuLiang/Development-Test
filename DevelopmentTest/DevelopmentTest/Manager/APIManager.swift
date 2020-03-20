@@ -30,9 +30,9 @@ class APIManager {
     }
     
     
-    func getPosts(page: Int = 30, pageNo: Int = 1, completionHandler: @escaping (Result<PostModel, AFError>) -> ()) {
+    func getPosts(pageNo: Int = 1, completionHandler: @escaping (Result<PostModel, AFError>) -> ()) {
         
-        let parameters: [String: String] = ["limit": "\(page)", "pageNo": "\(pageNo)"]
+        let parameters: [String: String] = ["limit": "10", "pageNo": "\(pageNo)"]
         let path = self.enviroment.domain + "api/social/posts"
         
         AF.request(path, method: .get, parameters: parameters, encoder: URLEncodedFormParameterEncoder.default).validate().responseJSON() { response in
