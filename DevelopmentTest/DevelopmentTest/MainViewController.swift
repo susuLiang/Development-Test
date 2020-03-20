@@ -11,7 +11,7 @@ import UIKit
 class MainViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    var postModel: PostModel!
+    var postModel: PostModel = PostModel(from: [:])
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,13 +40,20 @@ extension MainViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainCollectionViewCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainCollectionViewCell", for: indexPath) as! MainCollectionViewCell
+        cell.setCellContent(post: postModel.posts[indexPath.row])
         return cell
     }
-    
     
 }
 
 extension MainViewController: UICollectionViewDelegateFlowLayout {
+    
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+    }
+    
+    
     
 }
