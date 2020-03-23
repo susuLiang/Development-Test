@@ -84,7 +84,6 @@
 		C29A385F242069CC00E84997 = {
 			isa = PBXGroup;
 			children = (
-				C2A7EE5624285637005DEA9D /* Extensions */,
 				C29A386A242069CC00E84997 /* DevelopmentTest */,
 				C29A3869242069CC00E84997 /* Products */,
 				12FE5C2A075308104C8337AF /* Pods */,
@@ -104,12 +103,13 @@
 			isa = PBXGroup;
 			children = (
 				C29A386B242069CC00E84997 /* AppDelegate.swift */,
-				C2596A7C2423407D0070A4A9 /* Manager */,
-				696D7567242278240014A2BF /* CommonView */,
-				C2A7EE5124245E7A005DEA9D /* Model */,
 				C29A386D242069CC00E84997 /* MainViewController.swift */,
 				C2A7EE5424249229005DEA9D /* CustomFlowLayout.swift */,
 				C29A386F242069CC00E84997 /* Main.storyboard */,
+				C2596A7C2423407D0070A4A9 /* Manager */,
+				696D7567242278240014A2BF /* CommonView */,
+				C2A7EE5124245E7A005DEA9D /* Model */,
+				C2A7EE5624285637005DEA9D /* Extensions */,
 				C29A3872242069CD00E84997 /* Assets.xcassets */,
 				C29A3874242069CD00E84997 /* LaunchScreen.storyboard */,
 				C29A3877242069CD00E84997 /* Info.plist */,
