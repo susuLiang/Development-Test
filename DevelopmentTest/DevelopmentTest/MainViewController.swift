@@ -71,7 +71,10 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
 extension MainViewController: CustomFlowLayoutDelegate {
     
     func collectionView(_ collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath) -> CGFloat {
-        return CGFloat(self.posts[indexPath.row].cover.height > 315 ? 315 : self.posts[indexPath.row].cover.height)
+        let imageHeight = self.posts[indexPath.row].cover.height > 320 ? 320 : self.posts[indexPath.row].cover.height
+        let avatarHeight = 24 + 8 + 8
+        let labelHeight = self.posts[indexPath.row].title.height(withConstrainedWidth: self.collectionView.frame.width - 10 - 16, font: .systemFont(ofSize: 16))
+        return CGFloat(imageHeight + avatarHeight) + labelHeight
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
